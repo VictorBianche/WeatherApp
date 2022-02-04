@@ -1,23 +1,24 @@
 // patterns API
-const api_link = 'http://api.weatherapi.com/v1/current.json?key=';
-const api_key = 'b59319a383204b5483f13659221701&q=';
-const link = [];
+const apiLink = 'http://api.weatherapi.com/v1/current.json?key=';
+const apiKey = 'b59319a383204b5483f13659221701&q=';
+const isDisabled = true;
+
+const btn = document.getElementById("btn")
+//btn.setAttribute('disabled', false)
+
 // Geo Localization setup
 let sucess = (pos) => crd = pos.coords;
+navigator.geolocation.getCurrentPosition(sucess)
+    //.then(btn.setAttribute('disabled', true));
 
-navigator.geolocation.getCurrentPosition(sucess);
-// Api link builder
 
+    // Api link builder
 function montaLink(){
-    link_final = api_link + api_key + crd.latitude + ',' + crd.longitude;
-    return link_final
+    linkFinal = `${apiLink}${apiKey}${crd.latitude},${crd.longitude}`;
+    return linkFinal
 };
-
-document.getElementById("btn").onclick = function Atribui(){
-    link.push(montaLink())
-
-
-    fetch(link[0])
+btn.onclick = function Atribui(){
+    fetch(montaLink())
         .then(T => T.json())
         .then(console.log)
 }
