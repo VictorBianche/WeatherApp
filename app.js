@@ -1,26 +1,25 @@
-// patterns API
+// patterns
 const apiLink = 'http://api.weatherapi.com/v1/current.json?key=';
 const apiKey = 'b59319a383204b5483f13659221701&q=';
-const isDisabled = true;
-
-const btn = document.getElementById("btn")
-//btn.setAttribute('disabled', false)
+const requestButton = document.getElementById("btn")
 
 // Geo Localization setup
-let sucess = (pos) => crd = pos.coords;
-navigator.geolocation.getCurrentPosition(sucess)
-    //.then(btn.setAttribute('disabled', true));
+let sucess = (positions) => coordinates = positions.coords;
+let error = (positions) => requestButton.setAttribute('disabled', 'disabled'); 
+navigator.geolocation.getCurrentPosition(sucess, error)
 
-
-    // Api link builder
-function montaLink(){
-    linkFinal = `${apiLink}${apiKey}${crd.latitude},${crd.longitude}`;
-    return linkFinal
+// Api link builder
+function linkBuilder(){
+    finalLink = `${apiLink}${apiKey}${coordinates.latitude},${coordinates.longitude}`;
+    return finalLink
 };
-btn.onclick = function Atribui(){
-    fetch(montaLink())
-        .then(T => T.json())
-        .then(console.log)
+requestButton.onclick = async function Atribui(){
+    const response = await fetch(linkBuilder());
+    const data = await response.json();
+    const { temp_c } = data.current
+    const { name } = data.location
+    document.getElementById('location').textContent = name
+    document.getElementById('temperature').textContent =  `${temp_c}ºC`
 }
 
 
