@@ -8,10 +8,21 @@
     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-    <button id="btn">Try it</button>
+
+    <div class="div-geral">
+        <div class="menu-principal">
+            <h1>Temperatura Atual</h1>
+        </div>
+        <div class="botao-tempo">
+            <button id="btn">Conferir!</button>
+        </div>    
+        <div class="display-informacao">
+            <p><span id="location"></span></p>
+            <p><span id="temperature"></span></p>
+        </div>
+        
+    </div>
+
     <script src="app.js"></script>
-    <h1>Live Weather</h1>
-    <p>Your current location is: <span id="location"></span></p>
-    <p>Live Temperature: <span id="temperature"></span></p>
 </body>
 </html>

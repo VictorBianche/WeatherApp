@@ -17,9 +17,9 @@ requestButton.onclick = async function Atribui(){
     const response = await fetch(linkBuilder());
     const data = await response.json();
     const { temp_c } = data.current
+    const { text } = data.current.condition
     const { name } = data.location
-    document.getElementById('location').textContent = name
-    document.getElementById('temperature').textContent =  `${temp_c}ºC`
+    document.getElementById('location').textContent = `Your current location: ${name}`
+    document.getElementById('temperature').textContent =  `Live Temperature: ${temp_c}ºC`
 }
-
 

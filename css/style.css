@@ -1,3 +1,29 @@
 * {
-    background-color: bisque;
+    background-color:rgb(85, 12, 24);
+    padding: 0;
+    margin: 0;
+}
+
+.div-geral{
+    text-align: center;
+    color: rgb(255, 252, 242);
+}
+.menu-principal{
+    font-size: 1.5em;
+    padding: 20px;
+}
+.botao-tempo > button{
+    color: rgb(255, 252, 242);
+    margin-top: 10px;
+    padding:10px 20px;
+    border-radius: 5px;
+}
+.botao-tempo > button:hover{
+    background-color: rgb(255, 252, 242);
+    color: rgb(4, 57, 94);
+    transition-delay:16ms;
+}
+.display-informacao{
+    margin-top: 50px;
+    font-size: 1.1em;
 }
