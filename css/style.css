@@ -18,7 +18,7 @@
     padding:10px 20px;
     border-radius: 5px;
 }
-.botao-tempo > button:hover{
+.botao-tempo > button:hover:enabled{
     background-color: rgb(255, 252, 242);
     color: rgb(4, 57, 94);
     transition-delay:16ms;
@@ -26,4 +26,8 @@
 .display-informacao{
     margin-top: 50px;
     font-size: 1.1em;
+}
+
+.display-informacao > span{
+    font-weight: bold;
 }
